@@ -1,0 +1,15 @@
+.select-label {
+    text-transform: capitalize
+}
+
+:host {
+    margin-bottom: 30px;
+}
+
+select {
+    height: 32px;
+}
+
+option {
+    padding: 10px 0px;
+}

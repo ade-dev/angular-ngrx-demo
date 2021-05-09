@@ -1,0 +1,22 @@
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.portrait {
+    height: 160;
+    width: 60px;
+}
+
+table {
+    width: 100%;
+}
+
+:host {
+    width: 100%;
+    margin: 0px;
+}
+
+th {
+    text-align: left;
+}

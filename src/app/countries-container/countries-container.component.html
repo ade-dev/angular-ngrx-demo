@@ -1,0 +1,17 @@
+<app-countries-select
+    [dropDownData]="regions$ | async"
+    [actionType]="'region'"
+    (selectedItemEvent)="getCurrentOption($event)">
+</app-countries-select>
+
+<app-countries-select
+    [dropDownData]="countries$ | async"
+    [actionType]="'country'"
+    (selectedItemEvent)="getCurrentOption($event)">
+</app-countries-select>
+
+<app-country-details
+    [countryDetails]="currentCountry$ | async"
+    [countryCurrencies]="countryCurrencies$ | async"
+    [selectedOption]="currentOption">
+</app-country-details>

@@ -1,0 +1,33 @@
+<mat-card *ngIf="toggleDetails()">
+    <mat-card-content>
+        <table>
+            <tr>
+                <th>Name:</th>
+                <td>{{countryDetails.name}}</td>
+            </tr>
+            <tr>
+                <th>Capital:</th>
+                <td>{{countryDetails.capital}}</td>
+            </tr>
+            <tr>
+                <th>Population:</th>
+                <td>{{countryDetails.population}}</td>
+            </tr>
+            <tr>
+                <th>
+                    Currenc<span *ngIf="countryCurrencies.length > 1; else elseBlock">ies:</span>
+                    <ng-template #elseBlock><span>y:</span></ng-template>
+                </th>
+                <td>
+                    <app-country-currencies [countryCurrencies]="countryCurrencies"></app-country-currencies>
+                </td>
+            </tr>
+            <tr>
+                <th>Flag</th>
+                <td>
+                    <div class="portrait"><img [src]="countryDetails.flag" /></div>
+                </td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>

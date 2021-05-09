@@ -1,0 +1,9 @@
+<div *ngIf="dropDownData && dropDownData.length !== 0">
+    <form [formGroup]="regionsForm">
+        <label for="website" class="select-label">{{actionType}}: </label>
+        <select (change)="getSelectedOption()" formControlName="area">
+            <option value="">Please select {{actionType}}</option>
+            <option *ngFor="let item of dropDownData" [value]="item.name">{{item.name}}</option>
+        </select>
+    </form>
+</div>
