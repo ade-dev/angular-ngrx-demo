@@ -1,7 +1,7 @@
 # Angular application - NgRx demo
 
 
-A demo Angular application with tests - Uses an API to display a list of regions, countries and the details of a selected country. NgRx libraries are implemented to manage the state of the app, Jasmine, Karma and Protractor for writing and running tests and Angular Material for presentation.
+A demo Angular application with tests - Uses an API to display a list of regions, countries and the details of a selected country. NgRx libraries are implemented to manage the state of the app, Jasmine, Karma and Cypress for unit and e2e tests and Angular Material for presentation.
 
 
 By [Ade Oyebadejo](https://www.clade.co.uk/adewole)
@@ -45,4 +45,4 @@ Run `ng test` to execute the unit tests via Karma.
 
 ### Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via Protractor.
+Run `ng e2e` to execute end-to-end tests via Cypress.

@@ -21,7 +21,7 @@ describe('Countries Reducer', () => {
 
   const { initialState } = fromReducer;
 
-  describe('Undefined action', () => {
+  describe('Default state', () => {
     it('Should return the default state', () => {
       const action = {} as any;
       const state = fromReducer.countriesReducer(initialState, action);

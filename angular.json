@@ -76,6 +76,9 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-ngrx-demo:build:production"
+            },
+            "e2e": {
+              "port": 4300
             }
           }
         },
@@ -117,9 +120,22 @@
           }
         },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "@nrwl/cypress:cypress",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
+            "cypressConfig": "e2e-cypress/cypress.json",
+            "devServerTarget": "angular-ngrx-demo:serve:e2e",
+            "tsConfig": "e2e-cypress/tsconfig.e2e.json",
+            "exit": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-ngrx-demo:serve:production"
+            }
+          }
+        },
+        "cypress-run": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
             "devServerTarget": "angular-ngrx-demo:serve"
           },
           "configurations": {

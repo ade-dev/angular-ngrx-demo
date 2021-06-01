@@ -1,0 +1,13 @@
+{
+    "integrationFolder": "integration",
+    "supportFile": "support/index.ts",
+    "videosFolder": "../output/videos",
+    "screenshotsFolder": "../output/screenshots",
+    "pluginsFile": "plugins/index",
+    "fixturesFolder": "fixtures",
+    "baseUrl": "http://localhost:4200",
+    "chromeWebSecurity": false,
+    "video": false,
+    "screenshotOnRunFailure": true,
+    "defaultCommandTimeout": 8000
+}
