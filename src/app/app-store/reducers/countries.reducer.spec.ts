@@ -5,12 +5,12 @@ import { Country } from '../../models/country';
 describe('Countries Reducer', () => {
   let countries = <Country[]>[
     {
-      name: 'Belgium', capital: "Brussels", flag: "https://restcountries.eu/data/bel.svg", currencies: [
+      name: 'Belgium', capital: "Brussels", flag: "be.svg", currencies: [
         { "code": "EUR", "name": "Euro", "symbol": "€" }
       ]
     },
     {
-      name: 'Belarus', capital: "Minsk", flag: "https://restcountries.eu/data/blr.svg", currencies: [
+      name: 'Belarus', capital: "Minsk", flag: "by.svg", currencies: [
         { "code": "BYN", "name": "New Belarusian ruble", "symbol": "Br" },
         { "code": "BYR", "name": "Old Belarusian ruble", "symbol": "Br" }
       ]

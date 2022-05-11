@@ -28,7 +28,7 @@ describe('CountriesService', () => {
     {
       name: 'Belgium',
       capital: "Brussels",
-      flag: "https://restcountries.eu/data/bel.svg",
+      flag: "be.svg",
       currencies: [
         {
           "code": "EUR",
@@ -40,7 +40,7 @@ describe('CountriesService', () => {
     {
       name: 'Belarus',
       capital: "Minsk",
-      flag: "https://restcountries.eu/data/blr.svg",
+      flag: "by.svg",
       currencies: [
         {
           "code": "BYN",
@@ -65,7 +65,7 @@ describe('CountriesService', () => {
         expect(users).toEqual(expCountries, 'should return dummy countries'), fail;
       });
 
-    const req = httpTestingController.expectOne(`${mockCountriesService.endpoint}${queryKey}`);
+    const req = httpTestingController.expectOne(`${mockCountriesService.endpoint}${queryKey}/index.json`);
     expect(req.request.method).toEqual('GET');
   });
 

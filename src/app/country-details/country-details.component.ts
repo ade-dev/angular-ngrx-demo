@@ -13,6 +13,8 @@ export class CountryDetailsComponent implements OnInit {
   @Input() countryCurrencies: string[] | any = [];
   @Input() selectedOption: string = '';
 
+  assetsUrl: string = 'https://www.clade.co.uk/assets/images/flags/';
+
   toggleDetails() {
     return (this.selectedOption === '' ||
       this.selectedOption === 'Asia' ||
