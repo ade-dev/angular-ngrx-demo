@@ -3,19 +3,19 @@
         <table>
             <tr>
                 <th>Name:</th>
-                <td>{{countryDetails.name}}</td>
+                <td>{{countryDetails?.name}}</td>
             </tr>
             <tr>
                 <th>Capital:</th>
-                <td data-cy="countryCapital">{{countryDetails.capital}}</td>
+                <td data-cy="countryCapital">{{countryDetails?.capital}}</td>
             </tr>
             <tr>
                 <th>Population:</th>
-                <td>{{countryDetails.population}}</td>
+                <td>{{countryDetails?.population}}</td>
             </tr>
             <tr>
                 <th>
-                    Currenc<span *ngIf="countryCurrencies.length > 1; else elseBlock">ies:</span>
+                    Currenc<span *ngIf="countryCurrencies && countryCurrencies.length > 1; else elseBlock">ies:</span>
                     <ng-template #elseBlock><span>y:</span></ng-template>
                 </th>
                 <td>
@@ -25,7 +25,8 @@
             <tr>
                 <th>Flag</th>
                 <td>
-                    <div class="portrait"><img [src]="assetsUrl + countryDetails.flag" /></div>
+                    <div class="portrait"><img [src]="assetsUrl + countryDetails?.flag"
+                            [alt]="'Flag of ' + countryDetails?.name" /></div>
                 </td>
             </tr>
         </table>

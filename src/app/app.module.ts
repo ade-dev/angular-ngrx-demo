@@ -39,7 +39,6 @@ import { CountryCurrenciesComponent } from './country-currencies/country-currenc
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
-        // strictStateImmutability and strictActionImmutability are enabled by default
         strictStateSerializability: true,
         strictActionSerializability: true,
         strictActionWithinNgZone: true,

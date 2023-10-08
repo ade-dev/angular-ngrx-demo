@@ -20,7 +20,7 @@
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
 
-import '@testing-library/cypress/add-commands';
+// import '@testing-library/cypress/add-commands';
 
 //
 //

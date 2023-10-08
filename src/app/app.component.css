@@ -9,7 +9,7 @@
 
 .content {
     display: flex;
-    margin: 0px auto 32px;
+    margin: 0 auto 32px;
     padding: 0 16px;
     max-width: 960px;
     flex-direction: column;
@@ -17,5 +17,5 @@
 }
 
 h1 {
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0 0;
 }

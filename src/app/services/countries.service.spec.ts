@@ -5,8 +5,6 @@ import { Country } from '../models/country';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('CountriesService', () => {
-
-  let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
   let mockCountriesService: CountriesService;
 
@@ -18,13 +16,13 @@ describe('CountriesService', () => {
 
     });
     // instantiating HttpClient, HttpTestingController and CountriesService
-    httpClient = TestBed.inject(HttpClient);
+    TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
     mockCountriesService = TestBed.inject(CountriesService);
   });
 
   // Dummy data to be returned by request
-  const expCountries = <Country[]>[
+  const expCountries = <Country[]> [
     {
       name: 'Belgium',
       capital: "Brussels",
@@ -56,7 +54,7 @@ describe('CountriesService', () => {
     }
   ];
 
-  let queryKey = 'Europe';
+  const queryKey = 'Europe';
 
   it('Should call the getCountries api and return the dummy countries', () => {
     mockCountriesService.getCountries(queryKey).subscribe(

@@ -1,6 +1,6 @@
 :host {
     display: flex;
-    margin: 20px auto 0px;
+    margin: 20px auto 0;
     padding: 0 16px;
     max-width: 960px;
     flex-direction: column;

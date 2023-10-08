@@ -12,18 +12,17 @@ export class CountriesService {
 
   public endpoint = 'assets/data/countries/region/';
 
-  public handleError(apiCall: string) {
-    return (error: HttpErrorResponse): Observable<any> => {
-      return throwError(error);
-    };
-  };
+  public handleError(error: HttpErrorResponse) {
+    console.error('An error occurred:', error.error);
+    return throwError(() => new Error(`Please try again later.`));
+  }
 
   getCountries(region: string): Observable<Country[]> {
     const url = `${this.endpoint}${region}/index.json`;
-    return this.http.get<any>(url).pipe(
-      catchError(this.handleError('getCountries'))
+    return this.http.get<Country[]>(url).pipe(
+      catchError(this.handleError)
     );
-  };
+  }
 
   constructor(
     private http: HttpClient) { }

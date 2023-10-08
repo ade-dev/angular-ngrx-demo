@@ -1,9 +1,10 @@
 <div *ngIf="dropDownData && dropDownData.length !== 0">
     <form [formGroup]="regionsForm">
         <label [attr.for]="actionType" class="select-label">{{actionType}}: </label>
-        <select (change)="getSelectedOption()" formControlName="area" [attr.name]=actionType [attr.data-cy]=actionType>
+        <select (change)="getSelectedOption()" formControlName="area" [attr.name]="actionType"
+            [attr.data-cy]="actionType" [attr.id]="actionType" autocomplete="off">
             <option value="">Please select {{actionType}}</option>
-            <option *ngFor="let item of dropDownData" [value]="item.name">{{item.name}}</option>
+            <option *ngFor="let item of dropDownData" [value]="item.name" [attr.name]="item.name">{{item.name}}</option>
         </select>
     </form>
 </div>

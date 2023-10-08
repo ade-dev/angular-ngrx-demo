@@ -9,19 +9,17 @@ import { Country } from '../models/country';
 
 export class CountryDetailsComponent implements OnInit {
 
-  @Input() countryDetails!: Country | any;
-  @Input() countryCurrencies: string[] | any = [];
-  @Input() selectedOption: string = '';
+  @Input() countryDetails!: Country | null;
+  @Input() countryCurrencies!: string[] | null;
+  @Input() selectedOption = '';
 
-  assetsUrl: string = 'https://www.clade.co.uk/assets/images/flags/';
+  assetsUrl = 'https://www.clade.co.uk/assets/images/flags/';
 
   toggleDetails() {
     return (this.selectedOption === '' ||
       this.selectedOption === 'Asia' ||
       this.selectedOption === 'Europe') ? false : true;
-  };
-
-  constructor() { }
+  }
 
   ngOnInit(): void {
     this.selectedOption = '';

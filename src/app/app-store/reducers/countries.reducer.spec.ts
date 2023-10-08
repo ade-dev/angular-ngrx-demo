@@ -1,9 +1,10 @@
 import * as fromReducer from './countries.reducer';
 import * as fromActions from '../actions';
 import { Country } from '../../models/country';
+import { Action } from '@ngrx/store';
 
 describe('Countries Reducer', () => {
-  let countries = <Country[]>[
+  const countries = <Country[]> [
     {
       name: 'Belgium', capital: "Brussels", flag: "be.svg", currencies: [
         { "code": "EUR", "name": "Euro", "symbol": "€" }
@@ -17,13 +18,13 @@ describe('Countries Reducer', () => {
     }
   ];
 
-  let country = countries[1];
+  const country = countries[1];
 
   const { initialState } = fromReducer;
 
   describe('Default state', () => {
     it('Should return the default state', () => {
-      const action = {} as any;
+      const action = {} as Action;
       const state = fromReducer.countriesReducer(initialState, action);
 
       expect(state).toBe(initialState);

@@ -12,9 +12,9 @@ export interface Country {
     latlng: number[];
     demonym: string;
     area: number;
-    gini: any;
+    gini: number | null;
     timezones: string[];
-    borders: any[];
+    borders: string[];
     nativeName: string;
     numericCode: string;
     currencies: Currency[];

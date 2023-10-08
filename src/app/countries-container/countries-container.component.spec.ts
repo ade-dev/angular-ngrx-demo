@@ -39,22 +39,22 @@ describe('CountriesContainerComponent with mock store', () => {
 
     it("Should call getAllCountries if the selectedOption property is 'Europe'", () => {
       const selected = 'Europe';
-      let getAllCountries = spyOn(countriesContainerComponent, 'getAllCountries');
+      const getAllCountries = spyOn(countriesContainerComponent, 'getAllCountries');
       countriesContainerComponent.getCurrentOption(selected);
       expect(getAllCountries).toHaveBeenCalled();
     });
 
     it("Should call getAllCountries if the selectedOption property is 'Asia'", () => {
       const selected = 'Asia';
-      let getAllCountries = spyOn(countriesContainerComponent, 'getAllCountries');
+      const getAllCountries = spyOn(countriesContainerComponent, 'getAllCountries');
       countriesContainerComponent.getCurrentOption(selected);
       expect(getAllCountries).toHaveBeenCalled();
     });
 
     it("Should call getCountryDetails & getCurrencies if the selectedOption property is a country", () => {
       const selected = 'England';
-      let getCountryDetails = spyOn(countriesContainerComponent, 'getCountryDetails');
-      let getCurrencies = spyOn(countriesContainerComponent, 'getCurrencies');
+      const getCountryDetails = spyOn(countriesContainerComponent, 'getCountryDetails');
+      const getCurrencies = spyOn(countriesContainerComponent, 'getCurrencies');
       countriesContainerComponent.getCurrentOption(selected);
       expect(getCountryDetails).toHaveBeenCalled();
       expect(getCurrencies).toHaveBeenCalled();

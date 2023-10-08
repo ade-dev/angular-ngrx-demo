@@ -1,24 +1,15 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { CountriesActions, CountriesApiActions, CountryActions } from '../actions';
-import { Region } from '../../models/region';
 import { Country, Currency } from '../../models/country';
+import { State } from '../../models/state';
 
 export const countriesFeatureKey = 'countries';
-
-export interface State {
-  regions: Region[];
-  region: string;
-  countries: Country[];
-  currencies: string[];
-  country: any;
-  error: string;
-}
 
 export const initialState: State = {
   regions: [{ 'name': 'Europe' }, { 'name': 'Asia' }],
   region: '',
   countries: [],
-  country: {},
+  country: {} as Country,
   currencies: [],
   error: ''
 };
@@ -50,7 +41,7 @@ export const countriesReducer = createReducer(
     return {
       ...state,
       error: '',
-      country: state.countries.find((country) => country.name === name)
+      country: state.countries.find((country) => country.name === name) as Country
     };
   }),
   on(CountryActions.getCountryCurrencies, (state) => {

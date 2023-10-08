@@ -1,9 +1,10 @@
 import { ActionReducer, ActionReducerMap, createFeatureSelector, createSelector, MetaReducer } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 import * as fromCountries from './countries.reducer';
+import { State } from '../../models/state';
 
 export interface CountriesState {
-    [fromCountries.countriesFeatureKey]: fromCountries.State;
+    [fromCountries.countriesFeatureKey]: State;
 }
 
 export const reducers: ActionReducerMap<CountriesState> = {
@@ -26,7 +27,7 @@ export function logger(reducer: ActionReducer<CountriesState>): ActionReducer<Co
 export const metaReducers: MetaReducer<CountriesState>[] = !environment.production ? [logger] : [];
 
 // Composing the countries reducer's selectors.
-export const selectCountriesState = createFeatureSelector<fromCountries.State>(
+export const selectCountriesState = createFeatureSelector<State>(
     fromCountries.countriesFeatureKey
 );
 

@@ -26,7 +26,7 @@ describe('CountriesSelectComponent', () => {
 
   it('Should emit an event when an option is selected', () => {
     const selected = 'Europe';
-    const select = countriesSelectComponent.regionsForm.controls.area.setValue(selected);
+    countriesSelectComponent.regionsForm.controls.area.setValue(selected);
     spyOn(countriesSelectComponent.selectedItemEvent, 'emit');
     countriesSelectComponent.getSelectedOption();
     expect(countriesSelectComponent.selectedItemEvent.emit).toHaveBeenCalledWith(selected);

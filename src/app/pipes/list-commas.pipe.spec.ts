@@ -1,10 +1,8 @@
 import { ListCommasPipe } from './list-commas.pipe';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 describe('ListCommasPipe', () => {
 
   let listCommasPipe: ListCommasPipe;
-  let fixture: ComponentFixture<ListCommasPipe>;
 
   beforeEach(() => {
     listCommasPipe = new ListCommasPipe();

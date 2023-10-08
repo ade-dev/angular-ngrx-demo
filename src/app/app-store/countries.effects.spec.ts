@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Actions } from '@ngrx/effects';
-import { cold, getTestScheduler, hot } from 'jasmine-marbles';
-import { Observable, of } from 'rxjs';
+import { cold, hot } from 'jasmine-marbles';
+import { Observable } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { CountriesActions, CountriesApiActions } from './actions';
@@ -12,7 +12,7 @@ import { CountriesService } from '../services/countries.service';
 
 
 describe('CountriesEffects', () => {
-  let actions$: Observable<any>;
+  let actions$: Observable<Actions>;
   let effects: CountriesEffects;
   let countriesService: CountriesService;
 
@@ -34,7 +34,7 @@ describe('CountriesEffects', () => {
 
   describe('countries$', () => {
     it('Should return Countries.getCountriesSuccess, with the countries, on success', () => {
-      const countries = <Country[]>[
+      const countries = <Country[]> [
         { name: 'Belgium', capital: "Brussels", flag: "be.svg" },
         { name: 'Belarus', capital: "Minsk", flag: "by.svg" }
       ];

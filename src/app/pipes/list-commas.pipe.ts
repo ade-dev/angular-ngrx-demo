@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ListCommasPipe implements PipeTransform {
 
-  transform(value: string[] | null, listName?: string, keyWord?: string): any {
+  transform(value: string[] | null, listName?: string, keyWord?: string) {
 
     if (!value) {
       return `${listName} ${keyWord}`;
@@ -22,9 +22,7 @@ export class ListCommasPipe implements PipeTransform {
         return value.join(' and ');
 
       default:
-        const allButLast = value.slice(0, -1);
-        const last = value[value.length - 1];
-        return `${allButLast.join(', ')} and ${last}`;
+        return `${value.slice(0, -1).join(', ')} and ${value[value.length - 1]}`;
     }
   }
 }

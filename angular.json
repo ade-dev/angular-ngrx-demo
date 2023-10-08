@@ -76,9 +76,6 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-ngrx-demo:build:production"
-            },
-            "e2e": {
-              "port": 4300
             }
           }
         },
@@ -107,25 +104,20 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         },
         "e2e": {
-          "builder": "@nrwl/cypress:cypress",
+          "builder": "@cypress/schematic:cypress",
           "options": {
-            "cypressConfig": "e2e-cypress/cypress.json",
-            "devServerTarget": "angular-ngrx-demo:serve:e2e",
-            "tsConfig": "e2e-cypress/tsconfig.e2e.json",
-            "exit": false
+            "devServerTarget": "angular-ngrx-demo:serve",
+            "watch": true,
+            "headless": false
           },
           "configurations": {
             "production": {
@@ -134,7 +126,7 @@
           }
         },
         "cypress-run": {
-          "builder": "@nrwl/cypress:cypress",
+          "builder": "@cypress/schematic:cypress",
           "options": {
             "devServerTarget": "angular-ngrx-demo:serve"
           },
@@ -143,12 +135,26 @@
               "devServerTarget": "angular-ngrx-demo:serve:production"
             }
           }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
         }
       }
     }
   },
-  "defaultProject": "angular-ngrx-demo",
   "cli": {
-    "defaultCollection": "@ngrx/schematics"
+    "cache": {
+      "enabled": false
+    },
+    "schematicCollections": [
+      "@cypress/schematic",
+      "@cypress/schematic",
+      "@angular-eslint/schematics",
+      "@schematics/angular"
+    ]
   }
 }
