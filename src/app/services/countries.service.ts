@@ -10,7 +10,7 @@ import { Country } from '../models/country';
 
 export class CountriesService {
 
-  public endpoint = 'assets/data/countries/region/';
+  public endpoint = 'https://restcountries.com/v3.1/region/';
 
   public handleError(error: HttpErrorResponse) {
     console.error('An error occurred:', error.error);
@@ -18,7 +18,7 @@ export class CountriesService {
   }
 
   getCountries(region: string): Observable<Country[]> {
-    const url = `${this.endpoint}${region}/index.json`;
+    const url = `${this.endpoint}${region}`;
     return this.http.get<Country[]>(url).pipe(
       catchError(this.handleError)
     );

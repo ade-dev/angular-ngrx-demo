@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { Region } from '../models/region';
+import { Observable, of } from 'rxjs';
 import { Country } from '../models/country';
-import * as fromCountries from '../app-store/reducers';
+import * as fromCountries from '../app-store/reducers/countries.selector';
 import { CountryActions, CountriesActions } from '../app-store/actions';
 
 @Component({
@@ -15,14 +14,12 @@ import { CountryActions, CountriesActions } from '../app-store/actions';
 
 export class CountriesContainerComponent {
 
-  constructor(private store: Store) {
-    this.regions$ = store.select(fromCountries.selectRegions);
-  }
+  constructor(private store: Store) { }
 
-  regions$: Observable<Region[]>;
-  countries$!: Observable<Country[]>;
-  currentCountry$!: Observable<Country>;
-  countryCurrencies$!: Observable<string[]>;
+  regions$ = of(['Asia', 'Europe']);
+  countries$: Observable<string[]> | null = null;
+  currentCountry$: Observable<Country> | null = null;
+  countryCurrencies$: Observable<string[]> | null = null;
   currentOption = '';
 
   getCurrentOption(option: string) {
@@ -38,7 +35,7 @@ export class CountriesContainerComponent {
 
   getAllCountries(region: string) {
     this.store.dispatch(CountriesActions.getCountries({ region }));
-    this.countries$ = this.store.select(fromCountries.selectCountries);
+    this.countries$ = this.store.select(fromCountries.selectCountryNames);
   }
 
   getCountryDetails(name: string) {

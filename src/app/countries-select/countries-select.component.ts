@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Region } from '../models/region';
-import { Country } from '../models/country';
 
 @Component({
   selector: 'app-countries-select',
@@ -10,7 +8,7 @@ import { Country } from '../models/country';
 })
 export class CountriesSelectComponent {
 
-  @Input() dropDownData!: Region[] | Country[] | null;
+  @Input() dropDownData!: string[] | null;
   @Input() actionType!: string;
   @Output() selectedItemEvent = new EventEmitter<string>();
 

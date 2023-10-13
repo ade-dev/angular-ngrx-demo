@@ -9,11 +9,9 @@ import { Country } from '../models/country';
 
 export class CountryDetailsComponent implements OnInit {
 
-  @Input() countryDetails!: Country | null;
-  @Input() countryCurrencies!: string[] | null;
+  @Input() countryDetails: Country | null = null;
+  @Input() countryCurrencies: string[] | null = null;
   @Input() selectedOption = '';
-
-  assetsUrl = 'https://www.clade.co.uk/assets/images/flags/';
 
   toggleDetails() {
     return (this.selectedOption === '' ||

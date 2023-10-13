@@ -24,33 +24,16 @@ describe('CountriesService', () => {
   // Dummy data to be returned by request
   const expCountries = <Country[]> [
     {
-      name: 'Belgium',
-      capital: "Brussels",
-      flag: "be.svg",
-      currencies: [
-        {
-          "code": "EUR",
-          "name": "Euro",
-          "symbol": "€"
-        }
-      ]
+      name: { "common": "Belgium" },
+      capital: ["Brussels"],
+      flags: { "png": "be.png", "svg": "be.svg" },
+      currencies: [{ "name": "Euro", "symbol": "€" }]
     },
     {
-      name: 'Belarus',
-      capital: "Minsk",
-      flag: "by.svg",
-      currencies: [
-        {
-          "code": "BYN",
-          "name": "New Belarusian ruble",
-          "symbol": "Br"
-        },
-        {
-          "code": "BYR",
-          "name": "Old Belarusian ruble",
-          "symbol": "Br"
-        }
-      ]
+      name: { "common": "Belarus" },
+      capital: ["Minsk"],
+      flags: { "png": "by.png", "svg": "b.svg" },
+      currencies: [{ "name": "Belarusian ruble", "symbol": "Br" }]
     }
   ];
 
@@ -60,10 +43,10 @@ describe('CountriesService', () => {
     mockCountriesService.getCountries(queryKey).subscribe(
       users => {
         expect(users.length).toBe(2);
-        expect(users).toEqual(expCountries, 'should return dummy countries'), fail;
+        expect(users).toEqual(expCountries);
       });
 
-    const req = httpTestingController.expectOne(`${mockCountriesService.endpoint}${queryKey}/index.json`);
+    const req = httpTestingController.expectOne(`${mockCountriesService.endpoint}${queryKey}`);
     expect(req.request.method).toEqual('GET');
   });
 

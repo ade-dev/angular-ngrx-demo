@@ -1,39 +1,22 @@
 import { ActionReducer, ActionReducerMap, createFeatureSelector, createSelector, MetaReducer } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 import * as fromCountries from './countries.reducer';
-import { State } from '../../models/state';
+import { AppState } from '../../models/appstate';
+import { Country } from '../../models/country';
 
 export interface CountriesState {
-    [fromCountries.countriesFeatureKey]: State;
+    [fromCountries.countriesFeatureKey]: AppState;
 }
 
 export const reducers: ActionReducerMap<CountriesState> = {
     [fromCountries.countriesFeatureKey]: fromCountries.countriesReducer
 };
 
-// console.log all actions
-export function logger(reducer: ActionReducer<CountriesState>): ActionReducer<CountriesState> {
-    return (state, action) => {
-        const result = reducer(state, action);
-        console.groupCollapsed(action.type);
-        console.log('prev state', state);
-        console.log('action', action);
-        console.log('next state', result);
-        console.groupEnd();
-        return result;
-    };
-}
-
 export const metaReducers: MetaReducer<CountriesState>[] = !environment.production ? [logger] : [];
 
-// Composing the countries reducer's selectors.
-export const selectCountriesState = createFeatureSelector<State>(
+// Composing the countries selectors.
+export const selectCountriesState = createFeatureSelector<AppState>(
     fromCountries.countriesFeatureKey
-);
-
-export const selectCountriesEntitiesState = createSelector(
-    selectCountriesState,
-    (state) => state
 );
 
 export const selectCountriesError = createSelector(
@@ -47,21 +30,34 @@ export const selectCountries = createSelector(
 );
 
 export const selectSelectedCountry = createSelector(
-    selectCountriesEntitiesState,
+    selectCountriesState,
     fromCountries.getCountry
 );
 
 export const selectCountryCurrencies = createSelector(
-    selectCountriesEntitiesState,
-    fromCountries.getCountryCurrencies
-);
-
-export const selectRegions = createSelector(
     selectCountriesState,
-    fromCountries.getRegions
+    fromCountries.getCountryCurrencies
 );
 
 export const selectRegion = createSelector(
     selectCountriesState,
     fromCountries.getRegion
 );
+
+export const selectCountryNames = createSelector(
+    selectCountries,
+    (selectedCountries: Country[]) => selectedCountries.map((c: Country) => c.name.common).sort()
+);
+
+// console.log all actions
+export function logger(reducer: ActionReducer<CountriesState>): ActionReducer<CountriesState> {
+    return (state, action) => {
+        const result = reducer(state, action);
+        console.groupCollapsed(action.type);
+        console.log('prev state', state);
+        console.log('action', action);
+        console.log('next state', result);
+        console.groupEnd();
+        return result;
+    };
+}

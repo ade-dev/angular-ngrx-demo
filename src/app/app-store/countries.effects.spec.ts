@@ -35,8 +35,18 @@ describe('CountriesEffects', () => {
   describe('countries$', () => {
     it('Should return Countries.getCountriesSuccess, with the countries, on success', () => {
       const countries = <Country[]> [
-        { name: 'Belgium', capital: "Brussels", flag: "be.svg" },
-        { name: 'Belarus', capital: "Minsk", flag: "by.svg" }
+        {
+          name: { "common": "Belgium" },
+          capital: ["Brussels"],
+          flags: { "png": "be.png", "svg": "be.svg" },
+          currencies: [{ "name": "Euro", "symbol": "€" }]
+        },
+        {
+          name: { "common": "Belarus" },
+          capital: ["Minsk"],
+          flags: { "png": "by.png", "svg": "b.svg" },
+          currencies: [{ "name": "Belarusian ruble", "symbol": "Br" }],
+        }
       ];
 
       const action = CountriesActions.getCountries({ region: 'region' });

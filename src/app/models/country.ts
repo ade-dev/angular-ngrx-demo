@@ -1,32 +1,21 @@
+import { Name } from './name';
 export interface Country {
-    name: string;
-    topLevelDomain: string[];
-    alpha2Code: string;
-    alpha3Code: string;
-    callingCodes: string[];
-    capital: string;
-    altSpellings: string[];
-    region: string;
-    subregion: string;
-    population: number;
-    latlng: number[];
-    demonym: string;
-    area: number;
-    gini: number | null;
-    timezones: string[];
-    borders: string[];
-    nativeName: string;
-    numericCode: string;
+    name: Name;
+    capital: string[];
     currencies: Currency[];
-    languages: string[];
-    translations: object;
-    flag: string;
-    regionalBlocs: string[];
-    cioc: string;
+    flags: ImgSrc;
+    population?: number;
+    region?: string;
+    coatOfArms?: ImgSrc;
 }
 
 export interface Currency {
-    code: string;
     name: string;
     symbol: string;
+}
+
+interface ImgSrc {
+    png: string;
+    svg: string;
+    alt?: string;
 }

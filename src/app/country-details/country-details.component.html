@@ -3,7 +3,7 @@
         <table>
             <tr>
                 <th>Name:</th>
-                <td>{{countryDetails?.name}}</td>
+                <td>{{countryDetails?.name?.common}}</td>
             </tr>
             <tr>
                 <th>Capital:</th>
@@ -25,8 +25,8 @@
             <tr>
                 <th>Flag</th>
                 <td>
-                    <div class="portrait"><img [src]="assetsUrl + countryDetails?.flag"
-                            [alt]="'Flag of ' + countryDetails?.name" /></div>
+                    <div class="portrait"><img [src]="countryDetails?.flags?.svg"
+                            [alt]="'Flag of ' + countryDetails?.flags?.alt" /></div>
                 </td>
             </tr>
         </table>

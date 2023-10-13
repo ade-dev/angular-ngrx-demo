@@ -1,12 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 import { CountriesActions, CountriesApiActions, CountryActions } from '../actions';
 import { Country, Currency } from '../../models/country';
-import { State } from '../../models/state';
+import { AppState } from '../../models/appstate';
 
 export const countriesFeatureKey = 'countries';
 
-export const initialState: State = {
-  regions: [{ 'name': 'Europe' }, { 'name': 'Asia' }],
+export const initialState: AppState = {
   region: '',
   countries: [],
   country: {} as Country,
@@ -40,23 +39,19 @@ export const countriesReducer = createReducer(
   on(CountryActions.getCountry, (state, { name }) => {
     return {
       ...state,
-      error: '',
-      country: state.countries.find((country) => country.name === name) as Country
+      country: state.countries.find((country) => country.name.common === name) as Country
     };
   }),
   on(CountryActions.getCountryCurrencies, (state) => {
     return {
       ...state,
-      error: '',
-      country: state.country,
-      currencies: state.country.currencies.map((currency: Currency) => currency.name)
+      currencies: Object.values(state.country.currencies).map((currency: Currency) => currency.name)
     };
   })
 );
 
-export const getError = (state: State) => state.error;
-export const getCountries = (state: State) => state.countries;
-export const getRegions = (state: State) => state.regions;
-export const getRegion = (state: State) => state.region;
-export const getCountry = (state: State) => state.country;
-export const getCountryCurrencies = (state: State) => state.currencies;
+export const getError = (state: AppState) => state.error;
+export const getCountries = (state: AppState) => state.countries;
+export const getRegion = (state: AppState) => state.region;
+export const getCountry = (state: AppState) => state.country;
+export const getCountryCurrencies = (state: AppState) => state.currencies;

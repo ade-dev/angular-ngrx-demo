@@ -4,19 +4,22 @@ import { Country } from '../../models/country';
 import { Action } from '@ngrx/store';
 
 describe('Countries Reducer', () => {
+
   const countries = <Country[]> [
     {
-      name: 'Belgium', capital: "Brussels", flag: "be.svg", currencies: [
-        { "code": "EUR", "name": "Euro", "symbol": "€" }
-      ]
+      name: { "common": "Belgium" },
+      capital: ["Brussels"],
+      flags: { "png": "be.png", "svg": "be.svg" },
+      currencies: [{ "name": "Euro", "symbol": "€" }]
     },
     {
-      name: 'Belarus', capital: "Minsk", flag: "by.svg", currencies: [
-        { "code": "BYN", "name": "New Belarusian ruble", "symbol": "Br" },
-        { "code": "BYR", "name": "Old Belarusian ruble", "symbol": "Br" }
-      ]
+      name: { "common": "Belarus" },
+      capital: ["Minsk"],
+      flags: { "png": "by.png", "svg": "b.svg" },
+      currencies: [{ "name": "Belarusian ruble", "symbol": "Br" }],
     }
   ];
+
 
   const country = countries[1];
 
@@ -71,7 +74,7 @@ describe('Countries Reducer', () => {
       const state = fromReducer.countriesReducer(previousState, action);
 
       expect(state.error).toEqual('');
-      expect(state.currencies).toEqual(['New Belarusian ruble', 'Old Belarusian ruble']);
+      expect(state.currencies).toEqual(['Belarusian ruble']);
     });
   });
 });

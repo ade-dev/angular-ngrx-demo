@@ -1,7 +1,5 @@
-import { Region } from './region';
 import { Country } from './country';
-export interface State {
-    regions: Region[];
+export interface AppState {
     region: string;
     countries: Country[];
     currencies: string[];

@@ -9,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { reducers, metaReducers } from '../app/app-store/reducers';
+import { reducers, metaReducers } from './app-store/reducers/countries.selector';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { CountryDetailsComponent } from './country-details/country-details.component';
