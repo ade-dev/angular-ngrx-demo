@@ -17,7 +17,8 @@ By [Ade Oyebadejo](https://www.clade.co.uk/adewole)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
-The project has been updated to Angular version 16.2.0
+- The project has been updated to Angular version 16.2.0
+- The project has been updated to Angular and NgRx versions 17 - Using Node v18.13.0
 
 ### Installation
 

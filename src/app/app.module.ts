@@ -48,7 +48,7 @@ import { CountryCurrenciesComponent } from './country-currencies/country-currenc
     !environment.production ? StoreDevtoolsModule.instrument({
       name: 'NgRx Demo App',
       maxAge: 25, logOnly: environment.production
-    }) : [],
+    , connectInZone: true}) : [],
 
     EffectsModule.forRoot([CountriesEffects])
   ],
