@@ -12,7 +12,7 @@ describe('CountryCurrenciesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CountryCurrenciesComponent, ListCommasPipe]
+      imports: [CountryCurrenciesComponent, ListCommasPipe]
     })
       .compileComponents();
   });

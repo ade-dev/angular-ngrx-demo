@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CountriesContainerComponent } from './countries-container.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
-// import * as fromCountries from '../app-store/reducers/countries.selector';
 import { CountryActions, CountriesActions } from '../app-store/actions';
 
 describe('CountriesContainerComponent with mock store', () => {
@@ -12,13 +10,10 @@ describe('CountriesContainerComponent with mock store', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CountriesContainerComponent],
+      imports: [CountriesContainerComponent],
       providers: [provideMockStore({
-        selectors: [
-          // { selector: fromCountries.selectRegions, value: [] }
-        ]
-      })],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        selectors: []
+      })]
     })
       .compileComponents();
   });

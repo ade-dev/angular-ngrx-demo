@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CountriesSelectComponent } from './countries-select.component';
-import { StoreModule } from '@ngrx/store';
 
 describe('CountriesSelectComponent', () => {
   let countriesSelectComponent: CountriesSelectComponent;
@@ -8,8 +7,7 @@ describe('CountriesSelectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CountriesSelectComponent]
-      , imports: [StoreModule.forRoot({})]
+      imports: [CountriesSelectComponent]
     })
       .compileComponents();
   });

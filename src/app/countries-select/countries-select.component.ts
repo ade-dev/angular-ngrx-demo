@@ -1,8 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-countries-select',
+  standalone: true,
+  imports: [NgIf, ReactiveFormsModule, NgFor],
   templateUrl: './countries-select.component.html',
   styleUrls: ['./countries-select.component.css']
 })

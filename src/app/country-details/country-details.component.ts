@@ -1,8 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Country } from '../models/country';
+import { CountryCurrenciesComponent } from '../country-currencies/country-currencies.component';
+import { MatCardModule } from '@angular/material/card';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-country-details',
+  standalone: true,
+  imports: [NgIf, MatCardModule, CountryCurrenciesComponent],
   templateUrl: './country-details.component.html',
   styleUrls: ['./country-details.component.css']
 })

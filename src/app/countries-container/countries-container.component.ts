@@ -4,9 +4,14 @@ import { Observable, of } from 'rxjs';
 import { Country } from '../models/country';
 import * as fromCountries from '../app-store/reducers/countries.selector';
 import { CountryActions, CountriesActions } from '../app-store/actions';
+import { AsyncPipe } from '@angular/common';
+import { CountryDetailsComponent } from '../country-details/country-details.component';
+import { CountriesSelectComponent } from '../countries-select/countries-select.component';
 
 @Component({
   selector: 'app-countries-container',
+  standalone: true,
+  imports: [CountriesSelectComponent, CountryDetailsComponent, AsyncPipe],
   templateUrl: './countries-container.component.html',
   styleUrls: ['./countries-container.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
